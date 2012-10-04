@@ -21,6 +21,7 @@ define('SIMPLE_CONTACT_FORM_ADD_TO_MAIN_NAVIGATION', 1);
 // Add plugin hooks.
 add_plugin_hook('install', 'simple_contact_form_install');
 add_plugin_hook('uninstall', 'simple_contact_form_uninstall');
+add_plugin_hook('initialize', 'simple_contact_form_initialize');
 add_plugin_hook('define_routes', 'simple_contact_form_define_routes');
 add_plugin_hook('config_form', 'simple_contact_form_config_form');
 add_plugin_hook('config', 'simple_contact_form_config');
@@ -57,6 +58,11 @@ function simple_contact_form_uninstall()
     delete_option('simple_contact_form_contact_page_instructions');
     delete_option('simple_contact_form_thankyou_page_title');
     delete_option('simple_contact_form_add_to_main_navigation');
+}
+
+function simple_contact_form_initialize()
+{
+    add_translation_source(dirname(__FILE__) . '/languages');
 }
 
 /**
