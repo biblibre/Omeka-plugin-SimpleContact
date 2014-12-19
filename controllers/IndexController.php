@@ -115,11 +115,11 @@ class SimpleContact_IndexController extends Omeka_Controller_AbstractActionContr
     {
         // Notify the admin.
         // Use the admin email specified in the plugin configuration.
-        $forwardToEmail = get_option('simple_contact_notification_admin_to');
-        if (!empty($forwardToEmail)) {
+        $forwardToEmails = explode("\n", get_option('simple_contact_notification_admin_to'));
+        if (!empty($forwardToEmails)) {
             $mail = new Zend_Mail('UTF-8');
             $mail->setFrom($email, $name);
-            $mail->addTo($forwardToEmail);
+            $mail->addTo($forwardToEmails);
             $mail->setSubject(get_option('site_title') . ' - ' . get_option('simple_contact_notification_admin_subject'));
             $mail->setBodyText(get_option('simple_contact_notification_admin_header') . "\n\n" . $message);
             $mail->send();

@@ -156,7 +156,7 @@ class SimpleContactPlugin extends Omeka_Plugin_AbstractPlugin
                 'page_contact_add_to_main_navigation' => get_option('simple_contact_page_contact_add_to_main_navigation'),
                 'page_thankyou_title' => get_option('simple_contact_page_thankyou_title'),
                 'page_thankyou_text' => get_option('simple_contact_page_thankyou_text'),
-                'notification_admin_from' => get_option('simple_contact_notification_admin_to'),
+                'notification_admin_to' => get_option('simple_contact_notification_admin_to'),
                 'notification_admin_subject' => get_option('simple_contact_notification_admin_subject'),
                 'notification_admin_header' => get_option('simple_contact_notification_admin_header'),
                 'notification_user_from' => get_option('simple_contact_notification_user_from'),
@@ -184,6 +184,7 @@ class SimpleContactPlugin extends Omeka_Plugin_AbstractPlugin
                 ? serialize($post[$posted])
                 : serialize(array());
         }
+        $post['simple_contact_notification_admin_to'] = implode("\n", array_filter(array_map('trim', explode("\n", $post['simple_contact_notification_admin_to']))));
         foreach ($post as $key => $value) {
             set_option($key, $value);
         }

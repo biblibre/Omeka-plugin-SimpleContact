@@ -82,13 +82,13 @@ jQuery(window).load(function () {
     <div class="field">
         <div class="two columns alpha">
             <?php echo $this->formLabel('simple_contact_notification_admin_to',
-                __('Forward-To Email')); ?>
+                __('Forward-To Emails')); ?>
         </div>
         <div class='inputs five columns omega'>
             <p class="explanation">
-                <?php echo __('The email address that receives notifications that someone has submitted a message through the contact form. If blank, you will not be forwarded messages from your users.'); ?>
+                <?php echo __('The list of email addresses that receive notifications that someone has submitted a message through the contact form. If blank, no messages from your users will be forwarded.'); ?>
             </p>
-            <?php echo $this->formText('simple_contact_notification_admin_to', $notification_admin_from); ?>
+            <?php echo $this->formTextarea('simple_contact_notification_admin_to', $notification_admin_to, array('rows' => '5')); ?>
         </div>
     </div>
     <div class="field">
