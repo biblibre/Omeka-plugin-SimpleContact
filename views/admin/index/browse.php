@@ -130,7 +130,7 @@ echo head(array(
     <h2><?php echo __('There is no simple contact yet.'); ?></h2>
     <?php else: ?>
     <p><?php echo __('The query searched %s records and returned no results.', total_records('SimpleContact')); ?></p>
-    <p><a href="<?php echo url('simple-contact/contact/browse'); ?>"><?php echo __('See all simple contacts.'); ?></p>
+    <p><a href="<?php echo url('simple-contact/contact/browse'); ?>"><?php echo __('See all simple contacts.'); ?></a></p>
     <?php endif; ?>
 <?php endif; ?>
 <?php echo foot(); ?>
