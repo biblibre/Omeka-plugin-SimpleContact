@@ -5,7 +5,7 @@ queue_js_file('simple-contact');
 queue_js_file('simple-contact-browse');
 echo head(array(
     'title' => $pageTitle,
-    'bodyclass' => 'simple-contacts browse',
+    'bodyclass' => 'simple-contact browse',
 ));
 ?>
 <?php echo flash(); ?>
@@ -63,7 +63,7 @@ echo head(array(
                         case 'received': $status = __('Received'); break;
                         default: $status = __('Undefined');
                     } ?>
-                    <a href="<?php echo ADMIN_BASE_URL; ?>" id="simple-contact-<?php echo $simple_contact->id; ?>" class="simple-contact toggle-status status <?php echo $simple_contact->status; ?>"><?php echo $status; ?></span>
+                    <a href="<?php echo ADMIN_BASE_URL; ?>" id="simple-contact-<?php echo $simple_contact->id; ?>" class="simple-contact toggle-status status <?php echo $simple_contact->status; ?>"><?php echo $status; ?></a>
                 </td>
                 <td class="simple-contact-is-spam">
                     <?php switch ($simple_contact->is_spam) {
@@ -71,7 +71,7 @@ echo head(array(
                         case 1: $is_spam = __('Spam'); $is_spam_class = 'spam'; break;
                         default: $is_spam = __('Undefined'); $is_spam_class = 'undefined';
                     } ?>
-                    <a href="<?php echo ADMIN_BASE_URL; ?>" id="simple-contact-<?php echo $simple_contact->id; ?>" class="simple-contact toggle-is-spam is-spam <?php echo $is_spam_class; ?>"><?php echo $is_spam; ?></span>
+                    <a href="<?php echo ADMIN_BASE_URL; ?>" id="simple-contact-<?php echo $simple_contact->id; ?>" class="simple-contact toggle-is-spam is-spam <?php echo $is_spam_class; ?>"><?php echo $is_spam; ?></a>
                 </td>
                 <td class="simple-contact-name-email">
                     <a href="mailto:<?php echo $simple_contact->email; ?>">

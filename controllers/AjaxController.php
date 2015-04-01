@@ -18,7 +18,7 @@ class SimpleContact_AjaxController extends Omeka_Controller_AbstractActionContro
     }
 
     /**
-     * Handle AJAX requests to update a tagging.
+     * Handle AJAX requests to update a record.
      */
     public function updateAction()
     {
@@ -65,7 +65,7 @@ class SimpleContact_AjaxController extends Omeka_Controller_AbstractActionContro
     }
 
     /**
-     * Handle AJAX requests to delete a tagging.
+     * Handle AJAX requests to delete a record.
      */
     public function deleteAction()
     {
