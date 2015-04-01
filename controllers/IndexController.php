@@ -120,7 +120,7 @@ class SimpleContact_IndexController extends Omeka_Controller_AbstractActionContr
             $mail = new Zend_Mail('UTF-8');
             $mail->setFrom($email, $name);
             $mail->addTo($forwardToEmails);
-            $mail->setSubject(get_option('site_title') . ' - ' . get_option('simple_contact_notification_admin_subject'));
+            $mail->setSubject(get_option('simple_contact_notification_admin_subject') ?: get_option('site_title'));
             $mail->setBodyText(get_option('simple_contact_notification_admin_header') . "\n\n" . $message);
             $mail->send();
         }
@@ -131,7 +131,7 @@ class SimpleContact_IndexController extends Omeka_Controller_AbstractActionContr
             $mail = new Zend_Mail('UTF-8');
             $mail->setFrom($replyToEmail);
             $mail->addTo($email, $name);
-            $mail->setSubject(get_option('site_title') . ' - ' . get_option('simple_contact_notification_user_subject'));
+            $mail->setSubject(get_option('simple_contact_notification_user_subject') ?: get_option('site_title'));
             $mail->setBodyText(get_option('simple_contact_notification_user_header') . "\n\n" . $message);
             $mail->send();
         }
