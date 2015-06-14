@@ -114,12 +114,12 @@ echo head(array(
     <script type="text/javascript">
         Omeka.messages = jQuery.extend(Omeka.messages,
             {'simpleContact':{
-                'answered':'<?php echo __('Answered'); ?>',
-                'received':'<?php echo __('Received'); ?>',
-                'spam':'<?php echo __('Spam'); ?>',
-                'notSpam':'<?php echo __('Not Spam'); ?>',
-                'undefined':'<?php echo __('Undefined'); ?>',
-                'confirmation':'<?php echo __('Are your sure to remove these simple contacts?'); ?>'
+                'answered':<?php echo json_encode(__('Answered')); ?>,
+                'received':<?php echo json_encode(__('Received')); ?>,
+                'spam':<?php echo json_encode(__('Spam')); ?>,
+                'notSpam':<?php echo json_encode(__('Not Spam')); ?>,
+                'undefined':<?php echo json_encode(__('Undefined')); ?>,
+                'confirmation':<?php echo json_encode(__('Are your sure to remove these simple contacts?')); ?>
             }}
         );
         Omeka.addReadyCallback(Omeka.SimpleContactsBrowse.setupBatchEdit);
