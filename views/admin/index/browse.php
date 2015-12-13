@@ -30,7 +30,7 @@ echo head(array(
 
         <?php echo common('quick-filters'); ?>
 
-        <table id="simple-contacts" cellspacing="0" cellpadding="0">
+        <table id="simple-contacts">
         <thead>
             <tr>
                 <?php if (is_allowed('SimpleContact_Contact', 'update')): ?>

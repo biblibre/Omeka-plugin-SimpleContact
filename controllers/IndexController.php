@@ -100,7 +100,8 @@ class SimpleContact_IndexController extends Omeka_Controller_AbstractActionContr
             // Need getValue to run the filter.
             $simpleContact->ip = $_SERVER['REMOTE_ADDR'];
             $simpleContact->user_agent = $_SERVER['HTTP_USER_AGENT'];
-            if ($user = current_user()) {
+            $user = current_user();
+            if ($user) {
                 $simpleContact->user_id = $user->id;
             }
             $simpleContact->checkSpam();

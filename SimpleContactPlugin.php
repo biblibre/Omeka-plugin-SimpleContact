@@ -177,16 +177,18 @@ class SimpleContactPlugin extends Omeka_Plugin_AbstractPlugin
     public function hookConfig($args)
     {
         $post = $args['post'];
-        foreach (array(
-                'simple_contact_manage_roles',
-            ) as $posted) {
-            $post[$posted] = isset($post[$posted])
-                ? serialize($post[$posted])
-                : serialize(array());
-        }
+
         $post['simple_contact_notification_admin_to'] = implode("\n", array_filter(array_map('trim', explode("\n", $post['simple_contact_notification_admin_to']))));
-        foreach ($post as $key => $value) {
-            set_option($key, $value);
+
+        foreach ($this->_options as $optionKey => $optionValue) {
+            if (in_array($optionKey, array(
+                    'simple_contact_manage_roles',
+                ))) {
+               $post[$optionKey] = serialize($post[$optionKey]) ?: serialize(array());
+            }
+            if (isset($post[$optionKey])) {
+                set_option($optionKey, $post[$optionKey]);
+            }
         }
     }
 
