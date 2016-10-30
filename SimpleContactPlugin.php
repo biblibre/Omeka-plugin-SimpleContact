@@ -117,7 +117,7 @@ class SimpleContactPlugin extends Omeka_Plugin_AbstractPlugin
         $sql = "
             CREATE TABLE IF NOT EXISTS `$db->SimpleContact` (
             `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-            `status` enum('received', 'answered') NOT NULL DEFAULT 'received',
+            `status` enum('received', 'answered') NOT NULL,
             `is_spam` tinyint(1) NOT NULL DEFAULT '0',
             `email` tinytext COLLATE utf8_unicode_ci,
             `name` tinytext COLLATE utf8_unicode_ci,
