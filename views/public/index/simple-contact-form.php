@@ -1,6 +1,5 @@
 <div id="simple-contact">
-<?php echo $this->form('contact_form', $options['form_attributes']); ?>
-    <fieldset>
+    <?php echo $this->form('contact_form', $options['form_attributes']); ?>
         <div class="field">
             <?php echo $this->formLabel('name', __('Your Name:') . ' '); ?>
             <div class="inputs">
@@ -19,8 +18,6 @@
                 <?php echo $this->formTextarea('message', $options['message'], array('class' => 'textinput', 'rows' => '10')); ?>
             </div>
         </div>
-    </fieldset>
-    <fieldset>
         <?php if ($options['captcha']): ?>
         <div class="field">
             <?php echo $options['captcha']; ?>
@@ -30,6 +27,5 @@
         <div class="field">
             <?php echo $this->formSubmit('send', __('Send Message')); ?>
         </div>
-    </fieldset>
-</form>
+    </form>
 </div>
