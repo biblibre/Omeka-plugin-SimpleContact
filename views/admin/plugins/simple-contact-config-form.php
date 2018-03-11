@@ -1,16 +1,13 @@
-<?php
-echo js_tag('vendor/tiny_mce/tiny_mce');
-?>
+<?php echo js_tag('vendor/tinymce/tinymce.min'); ?>
 <script type="text/javascript">
-jQuery(window).load(function () {
+jQuery(document).ready(function () {
     Omeka.wysiwyg({
-        mode: 'specific_textareas',
-        editor_selector: 'html-editor'
+        selector: '.html-editor'
     });
 });
 </script>
 <?php if (!Omeka_Captcha::isConfigured()): ?>
-<p class="alert"><?php echo __('You have not entered your <a href="http://recaptcha.net/">reCAPTCHA</a> API keys under <a href="%s">security settings</a>.', url('security#recaptcha_public_key')); ?>
+<?php echo __('You have not entered your <a href="http://www.google.com/recaptcha/intro/index.html">reCAPTCHA</a> API keys under <a href="%s">security settings</a>.', url('security#recaptcha_public_key')); ?>
     <?php echo __('We recommend adding these keys, or the contact form will be vulnerable to spam.'); ?>
 </p>
 <?php endif; ?>
@@ -36,7 +33,7 @@ jQuery(window).load(function () {
             <p class="explanation">
                 <?php echo __('Any specific instructions to add to the contact form.'); ?>
             </p>
-            <?php echo $this->formTextarea('simple_contact_page_contact_text', __($page_contact_text), array('rows' => '10', 'class' => array('textinput', 'html-editor'))); ?>
+            <?php echo $this->formTextarea('simple_contact_page_contact_text', __($page_contact_text), array('rows' => '10', 'class' => array('html-editor'))); ?>
         </div>
     </div>
     <div class="field">
@@ -74,7 +71,7 @@ jQuery(window).load(function () {
             <p class="explanation">
                 <?php __('The text displayed on the Thank You page.');?>
             </p>
-            <?php echo $this->formTextarea('simple_contact_page_thankyou_text', __($page_thankyou_text), array('rows' => '10', 'class' => array('textinput', 'html-editor'))); ?>
+            <?php echo $this->formTextarea('simple_contact_page_thankyou_text', __($page_thankyou_text), array('rows' => '10', 'cols' => '60', 'class' => array('html-editor'))); ?>
         </div>
     </div>
 </fieldset>
@@ -88,7 +85,7 @@ jQuery(window).load(function () {
             <p class="explanation">
                 <?php echo __('The list of email addresses that receive notifications that someone has submitted a message through the contact form. If blank, no messages from your users will be forwarded.'); ?>
             </p>
-            <?php echo $this->formTextarea('simple_contact_notification_admin_to', $notification_admin_to, array('rows' => '5')); ?>
+            <?php echo $this->formTextarea('simple_contact_notification_admin_to', $notification_admin_to, array('rows' => '5', 'cols' => '60')); ?>
         </div>
     </div>
     <div class="field">
@@ -112,7 +109,7 @@ jQuery(window).load(function () {
             <p class="explanation">
                 <?php echo __('The beginning of the message that is sent to the Forward-To email address.'); ?>
             </p>
-            <?php echo $this->formTextarea('simple_contact_notification_admin_header', __($notification_admin_header), array('rows' => '10')); ?>
+            <?php echo $this->formTextarea('simple_contact_notification_admin_header', __($notification_admin_header), array('rows' => '10', 'cols' => '60')); ?>
         </div>
     </div>
 </fieldset>
@@ -150,7 +147,7 @@ jQuery(window).load(function () {
             <p class="explanation">
                 <?php echo __('The beginning of the confirmation email that is sent to users who post messages through the form.'); ?>
             </p>
-            <?php echo $this->formTextarea('simple_contact_notification_user_header', __($notification_user_header), array('rows' => '10')); ?>
+            <?php echo $this->formTextarea('simple_contact_notification_user_header', __($notification_user_header), array('rows' => '10', 'cols' => '60')); ?>
         </div>
     </div>
 </fieldset>
