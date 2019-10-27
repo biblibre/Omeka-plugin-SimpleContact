@@ -47,7 +47,7 @@ class SimpleContact_AjaxController extends Omeka_Controller_AbstractActionContro
                 return;
             }
 
-            $id = (integer) $this->_getParam('id');
+            $id = (int) $this->_getParam('id');
             $simpleContact = $this->_helper->db->find($id);
             if (!$simpleContact) {
                 $this->getResponse()->setHttpResponseCode(400);
@@ -75,7 +75,7 @@ class SimpleContact_AjaxController extends Omeka_Controller_AbstractActionContro
 
         // Handle action.
         try {
-            $id = (integer) $this->_getParam('id');
+            $id = (int) $this->_getParam('id');
             $simpleContact = $this->_helper->db->find($id);
             if (!$simpleContact) {
                 $this->getResponse()->setHttpResponseCode(400);

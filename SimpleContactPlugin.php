@@ -162,7 +162,7 @@ class SimpleContactPlugin extends Omeka_Plugin_AbstractPlugin
                 'notification_user_from' => get_option('simple_contact_notification_user_from'),
                 'notification_user_subject' => get_option('simple_contact_notification_user_subject'),
                 'notification_user_header' => get_option('simple_contact_notification_user_header'),
-                'save_into_base' => (boolean) get_option('simple_contact_save_into_base'),
+                'save_into_base' => (bool) get_option('simple_contact_save_into_base'),
                 'manage_roles' => unserialize(get_option('simple_contact_manage_roles')),
                 'wpapi_key' => get_option('simple_contact_wpapi_key'),
             )
@@ -232,7 +232,7 @@ class SimpleContactPlugin extends Omeka_Plugin_AbstractPlugin
     /**
      * Defines the plugin's access control list.
      *
-     * @param object $args
+     * @param array $args
      */
     public function hookDefineAcl($args)
     {
