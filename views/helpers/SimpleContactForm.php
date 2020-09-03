@@ -28,11 +28,13 @@ class SimpleContact_View_Helper_SimpleContactForm extends Zend_View_Helper_Abstr
      */
     public function simpleContactForm(array $options = array())
     {
+        $captcha = Omeka_Captcha::getCaptcha();
+
         $defaultOptions = array(
             'name' => '',
             'email' => '',
             'message' => '',
-            'captcha' => '',
+            'captcha' => $captcha ? $captcha->render(new Zend_View) : '',
             'path' => Zend_Controller_Front::getInstance()->getRequest()->getPathInfo(),
             'form_attributes' => array(),
         );
